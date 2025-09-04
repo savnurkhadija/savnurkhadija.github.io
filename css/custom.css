@@ -43,7 +43,7 @@
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/hero-furniture.jpg');
+   /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/hero-furniture.jpg');*/
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -124,11 +124,14 @@
 
 /* Navigation */
 .navbar-nav .nav-link.active {
-    color: var(--primary-color) !important;
+    color: var(--accent-color) !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--primary-color) !important;
+    color: var(--accent-color) !important;
+}
+.navbar-nav .nav-link {
+color:white;
 }
 
 /* Cards */
@@ -193,15 +196,20 @@
 
 .hero-section h1,
 .hero-section p,
-.hero-section .btn {
+.hero-section .btn,
+#hmPg h1,
+#hmPg p,
+#hmPg .btn {
     animation: fadeInUp 0.8s ease-out;
 }
 
-.hero-section p {
+.hero-section p,
+#hmPg p{
     animation-delay: 0.2s;
 }
 
-.hero-section .btn {
+.hero-section .btn
+{
     animation-delay: 0.4s;
 }
 
@@ -223,3 +231,25 @@ footer .logo-circle {
     background-color: var(--accent-color);
     color: #000;
 }
+
+ /* Define the background color */
+    .custom-bg {
+      background-color: #0a3c3f; /* Your desired color */
+      color: white;
+    }
+
+    /* Optional: Make the hero section take full height */
+    .hero-section {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ensure the text in the hero section is readable */
+    .hero-section .container {
+      z-index: 1;
+    }
+	.navbar-toggler {
+      background-color: white; /* Change the icon to white */
+    }
