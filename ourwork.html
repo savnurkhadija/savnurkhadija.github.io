@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Furniture - Custom Furniture Manufacturing in Kolhapur</title>
+    <meta name="description" content="Premium custom furniture for hotels, offices, hospitals, modular kitchens and homes. Quality craftsmanship and timely delivery in Kolhapur. Crafting furniture, Building Trust.">
+    <meta name="author" content="Ideal Furniture">
+    <meta name="keywords" content="custom furniture, hotel furniture, office furniture, hospital furniture, modular kitchen, Kolhapur, furniture manufacturing">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ideal Furniture - Custom Furniture Manufacturing in Kolhapur">
+    <meta property="og:description" content="Premium custom furniture for hotels, offices, hospitals, modular kitchens and homes. Quality craftsmanship and timely delivery in Kolhapur.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lovable_dev">
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+	<style>
+  #subCat-All {
+    text-align: center;
+	 display: flex;
+	    justify-content: center;
+  }
+
+  .subcategory-container {
+   
+ 
+    flex-wrap: wrap;
+    gap: 10px; /* Optional: adds space between buttons */
+  }
+
+  .subcategory {
+    margin: 5px; /* Optional: adds space between the button containers */
+  }
+
+  .btn {
+    display: inline-block; /* Ensure buttons are inline */
+  }
+
+
+
+   /* Ensure there's vertical space between the two sections */
+  .container {
+    margin-bottom: 30px; /* Add bottom margin to create space */
+  }
+
+  /* Optional: Styling for the horizontal line between the two sections */
+  hr {
+    border: 1px solid #ccc; /* Light grey color for the line */
+    width: 80%; /* Make the line shorter than the full width */
+    margin: 0 auto; /* Center the line */
+  }
+
+  /* Flexbox settings for centering inside each section */
+  .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+
+  /* Optional: Add some padding inside the containers for better spacing */
+  .text-center {
+    padding: 20px;
+  }
+
+
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+	justify-self: center;
+}
+
+.image-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.description {
+    margin-top: 15px;
+    color: #555;
+    font-size: 14px;
+
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption text */
+#caption {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+</style>
+    
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+	
+</head>
+
+<body>
+
+ <nav class="navbar navbar-expand-lg custom-bg">
+    <div class="container">
+      <a class="navbar-brand" href="http://www.idealfurniture.in">
+        <img src="uix/ideal-logo-edited.png" height="100" width="225" alt="Ideal Furniture">
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-4">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-medium" href="products.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <a href='contact.html' class="btn btn-primary">Get Quote</a>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+     <div class="container text-center">
+              <h3>Select category</h3>
+           
+			  <div  id="cat-All" class="d-flex flex-wrap gap-3 justify-content-center"></div>
+		  	
+     </div>
+		<hr style="margin: 20px 0;">
+
+	  <div class="container text-center">
+            <h3 id="sTitle" style="display:none">Select subcategory</h3>
+ 	  		<div id="subCat-All" class="d-flex flex-wrap gap-3 justify-content-center"></div>
+     </div>
+
+
+<div id="image-container" class="image-container"></div>
+
+   <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Image">
+        <div id="caption"></div>
+    </div>
+</div>
+
+
+	 <!-- Categories
+   <div class="categories"></div>
+
+   <div class="subcategories"></div> -->
+
+
+      <!-- Footer -->
+       <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                   <a class="navbar-brand" href="http://www.idealfurniture.in">
+					<img src="uix/ideal-logo-edited.png" height="100" width="225" alt="Ideal Furniture">
+				  </a>
+                    </div>
+                    <p style="color:white;">
+                        Your trusted partner for custom furniture solutions across hotels, offices, 
+                        hospitals, modular kitchens, and homes. Quality craftsmanship with a personal touch.
+                    </p>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Our Services</h5>
+                    <ul style="color:white;">
+                        <li>Office Furniture</li>
+                        <li>Hospital Furniture</li>
+                        <li>Hotel Furniture</li>
+                        <li>Modular Kitchens</li>
+                        <li>Home Furniture</li>
+                        <li>Custom Designs</li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <div class="d-flex align-items-start mb-2">
+                        <i class="bi bi-geo-alt me-2 mt-1"></i>
+                        <span style="color:white;">265/5, Gokul Shirgaon, M.I.D.C,<br>416234, Kolhapur</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        <span style="color:white;">+91 992382 7386</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span style="color:white;">info@idealfurniture.in</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">© 2024 Ideal Furniture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+//const apiUrl = 'http://localhost:5250/api';
+const apiUrl ='https://idealfurniture.runasp.net/api';
+
+	// Fetch Categories
+	async function fetchCategories() {
+		const response = await fetch(apiUrl+'/category');
+		const categories = await response.json();
+		displayCategories(categories);
+	}
+
+	// Display Categories
+	function displayCategories(categories) {
+		const catDiv = document.getElementById('cat-All');
+		categories.forEach(category => {
+			// Create category element dynamically
+			const categoryElement = document.createElement('div');
+			categoryElement.classList.add('category-container');
+			
+			// Add category name and link to edit it
+			const categoryName = document.createElement('div');
+			categoryName.classList.add('category');
+			categoryName.innerHTML = `<a onclick="fnSelectCategory(${category.id})" class="btn btn-warning btn-lg px-4">${category.name}</a>`;
+			categoryElement.appendChild(categoryName);
+
+			// Add subcategories button
+		
+
+			// Append the category to the catDiv
+			catDiv.appendChild(categoryElement);
+		});
+	}
+
+	// Call the function to fetch categories when the page loads
+	fetchCategories();
+
+async function fnSelectCategory(cid){
+
+		const response = await fetch(apiUrl+'/category/'+cid);
+		const categories = await response.json();
+
+    await fetch(apiUrl+"/Subcategory/allsubcategory/"+cid)
+        .then(response => response.json())
+        .then(data => {
+	
+			const container = document.getElementById('image-container');
+			container.innerHTML = '';
+			const subCatDiv = document.getElementById('subCat-All');
+			subCatDiv.innerHTML="";
+            if (	data && Array.isArray(data)) {
+				var flag=1;
+				document.getElementById('sTitle').style.display='none';
+                data.forEach(item => {
+
+				if(item.id ==0){subCatDiv.innerHTML="<h3>No subcategory found</h3>"; return;}
+
+					const subcatContainer = document.createElement('div');
+					subcatContainer.classList.add('subcategory-container');
+
+					if(flag == 1){
+						 flag=0;
+						 document.getElementById('sTitle').style.display='block';
+						 document.getElementById('sTitle').innerHTML = "Select subcategory of <b>"+categories.name+"</b>";
+					 }
+
+					const subcategoryName = document.createElement('div');
+					subcategoryName.classList.add('subcategory');
+					subcategoryName.innerHTML = `<a onclick="fnSelectSubcategory(${item.id})" class="btn btn-outline-dark btn-lg px-4">${item.name}</a>`;
+					
+					subcatContainer.appendChild(subcategoryName);
+					subCatDiv.append(subcatContainer);
+
+//					subCatDiv.appendChild(subcategoryName);
+
+                });
+
+            } else {
+                console.error("API did not return valid subcategory data");
+            }
+        })
+        .catch(error => {
+            console.error("Error loading subcategories:", error);
+            alert("Failed to load subcategories. Please try again later.");
+        });
+}
+
+async function fnSelectSubcategory(){
+		await fetch(apiUrl+"/Subcategory/allsubcategory/"+cid)
+        .then(response => response.json())
+        .then(data => {
+			const subCatDiv = document.getElementById('subCat-All');
+			subCatDiv.innerHTML="";
+            if (data && Array.isArray(data)) {
+                data.forEach(item => {
+					const subcategoryName = document.createElement('div');
+					subcategoryName.classList.add('subcategory');
+					subcategoryName.innerHTML = `<a onclick="fnSelectSubcategory(${item.id})">${item.name}</a>`;
+				
+					subCatDiv.appendChild(subcategoryName);
+                });
+            } else {
+                console.error("API did not return valid subcategory data");
+            }
+        })
+        .catch(error => {
+            console.error("Error loading subcategories:", error);
+            alert("Failed to load subcategories. Please try again later.");
+        });
+}
+
+
+ function fnSelectSubcategory(id) {
+	 const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const captionText = document.getElementById('caption');
+const closeBtn = document.getElementById('closeModalBtn');
+
+            // URL to your API
+            const apiuUrl = apiUrl+"/media/images/"+id;  // Replace with your actual URL
+
+            // Fetch data from the API
+      fetch(apiuUrl)
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => {
+            console.log("Fetched data:", data);  // Check the response
+
+            // Check if the data is actually an array
+            if (Array.isArray(data)) {
+
+				if(data.length == 0){
+				 document.getElementById('image-container').innerHTML = "<h4>No images found..</h4>";
+				 return;
+				}
+
+                // Clear the container before appending new images
+                const container = document.getElementById('image-container');
+                container.innerHTML = '';
+
+                // Loop through the fetched data and create image elements
+                data.forEach(item => {
+                    // Create a div for each image
+                    const imageItem = document.createElement('div');
+                    imageItem.classList.add('image-item');
+
+                    // Create an image element
+                    const img = document.createElement('img');
+                    img.src = item.imagePath;  // Set image source to ImagePath
+                    img.alt = item.description;  // Set alt text to Description
+
+					img.addEventListener('click', function() {
+						   modal.style.display = 'block';
+							modalImage.src =  item.imagePath; // Replace with your image URL
+							//captionText.innerHTML = 'Sample Image Caption';
+					});
+
+					closeBtn.onclick = function() {
+						modal.style.display = 'none';
+					}
+
+                    // Create a paragraph for the description
+                    const desc = document.createElement('p');
+					  desc.classList.add('description');
+                    desc.innerText = item.description;
+
+                    // Append the image and description to the image item div
+                    imageItem.appendChild(img);
+                    imageItem.appendChild(desc);
+
+                    // Append the image item div to the container
+                    container.appendChild(imageItem);
+                });
+            } else {
+                console.error("Expected an array, but got:", data);
+                alert("Error: Invalid data format returned by the server.");
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching images:", error);
+            alert("Error fetching images. Please try again later.");
+        });
+        }
+
+</script>
+
+   <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
