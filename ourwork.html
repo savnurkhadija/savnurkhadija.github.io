@@ -59,13 +59,13 @@
     margin: 0 auto; /* Center the line */
   }
 
-  /* Flexbox settings for centering inside each section */
+  /* Flexbox settings for centering inside each section
   .d-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Space between buttons */
-  }
+    gap: 10px; /* Space between buttons 
+  } */
 
   /* Optional: Add some padding inside the containers for better spacing */
   .text-center {
@@ -92,7 +92,7 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     justify-items: center;
-	justify-self: center;
+
 }
 
 .image-item {
@@ -122,6 +122,13 @@ h1 {
     font-size: 14px;
 
 }
+#navbarNav {
+	justify-items:right;
+}
+#btnquote{
+float:right;
+}
+
 
 /* The Modal (background) */
 .modal {
@@ -170,7 +177,20 @@ h1 {
     text-decoration: none;
     cursor: pointer;
 }
+ #backButton {
+      position: relative;
+      top: 10px;
+      left: 0px;
+      z-index: 1000; /* Ensure it's always on top */
 
+      color: #8B4513;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+	  font-weight:bold;
+    }
 </style>
     
     <!-- Custom CSS -->
@@ -205,27 +225,24 @@ h1 {
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
         </ul>
-        <a href='contact.html' class="btn btn-primary">Get Quote</a>
+        <a href='contact.html' class="btn btn-primary" id='btnquote'>Get Quote</a>
       </div>
     </div>
   </nav>
+
 <div class="container">
-     <div class="container text-center">
-              <h3>Select category</h3>
-           
-			  <div  id="cat-All" class="d-flex flex-wrap gap-3 justify-content-center"></div>
-		  	
-     </div>
-		<hr style="margin: 20px 0;">
+ <a id="backButton" onclick="window.history.back()">Go back</a>
 
 	  <div class="container text-center">
+
+	  <span style="float:center;margin-top:0px;"><img src="uix/loading.gif" id="loadingIcon"></span>
             <h3 id="sTitle" style="display:none">Select subcategory</h3>
+			<hr style="margin: 20px 0;">
  	  		<div id="subCat-All" class="d-flex flex-wrap gap-3 justify-content-center"></div>
      </div>
 
 
 <div id="image-container" class="image-container"></div>
-
    <!-- The Modal -->
     <div id="imageModal" class="modal">
         <span class="close" id="closeModalBtn">&times;</span>
@@ -327,7 +344,7 @@ const apiUrl ='https://idealfurniture.runasp.net/api';
 	}
 
 	// Call the function to fetch categories when the page loads
-	fetchCategories();
+	//fetchCategories();
 
 async function fnSelectCategory(cid){
 
@@ -339,7 +356,7 @@ async function fnSelectCategory(cid){
         .then(data => {
 	
 			const container = document.getElementById('image-container');
-			container.innerHTML = '';
+			//container.innerHTML = '';
 			const subCatDiv = document.getElementById('subCat-All');
 			subCatDiv.innerHTML="";
             if (	data && Array.isArray(data)) {
@@ -360,7 +377,7 @@ async function fnSelectCategory(cid){
 
 					const subcategoryName = document.createElement('div');
 					subcategoryName.classList.add('subcategory');
-					subcategoryName.innerHTML = `<a onclick="fnSelectSubcategory(${item.id})" class="btn btn-outline-dark btn-lg px-4">${item.name}</a>`;
+					subcategoryName.innerHTML = `<a onclick="fnSelectSubcategory(${item.id})" id="link-${item.id}" class="btn btn-outline-dark btn-lg px-4">${item.name}</a>`;
 					
 					subcatContainer.appendChild(subcategoryName);
 					subCatDiv.append(subcatContainer);
@@ -368,6 +385,7 @@ async function fnSelectCategory(cid){
 //					subCatDiv.appendChild(subcategoryName);
 
                 });
+				document.getElementById('loadingIcon').style.display='none';
 
             } else {
                 console.error("API did not return valid subcategory data");
@@ -399,34 +417,41 @@ async function fnSelectSubcategory(){
         })
         .catch(error => {
             console.error("Error loading subcategories:", error);
-            alert("Failed to load subcategories. Please try again later.");
+            alert("Failed to load subcategories... Please try again later.");
         });
 }
 
 
  function fnSelectSubcategory(id) {
 	 const modal = document.getElementById('imageModal');
-const modalImage = document.getElementById('modalImage');
-const captionText = document.getElementById('caption');
-const closeBtn = document.getElementById('closeModalBtn');
+	const modalImage = document.getElementById('modalImage');
+	const captionText = document.getElementById('caption');
+	const closeBtn = document.getElementById('closeModalBtn');
 
-            // URL to your API
-            const apiuUrl = apiUrl+"/media/images/"+id;  // Replace with your actual URL
+	// Remove the "active" class from all links
+    const links = document.querySelectorAll('.subcategory a');
+    links.forEach(link => {
+      link.classList.remove('active');
+    });
 
-            // Fetch data from the API
+    // Add the "active" class to the clicked link
+    const activeLink = document.getElementById('link-' + id);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+
+	// URL to your API
+	const apiuUrl = apiUrl+"/media/images/"+id;  // Replace with your actual URL
+	// Fetch data from the API
       fetch(apiuUrl)
         .then(response => response.json())  // Parse the JSON response
         .then(data => {
-            console.log("Fetched data:", data);  // Check the response
-
             // Check if the data is actually an array
             if (Array.isArray(data)) {
-
 				if(data.length == 0){
 				 document.getElementById('image-container').innerHTML = "<h4>No images found..</h4>";
 				 return;
 				}
-
                 // Clear the container before appending new images
                 const container = document.getElementById('image-container');
                 container.innerHTML = '';
@@ -439,12 +464,12 @@ const closeBtn = document.getElementById('closeModalBtn');
 
                     // Create an image element
                     const img = document.createElement('img');
-                    img.src = item.imagePath;  // Set image source to ImagePath
+                    img.src = 'https://idealfurniture.runasp.net/uploads/'+item.imagePath;  // Set image source to ImagePath
                     img.alt = item.description;  // Set alt text to Description
 
 					img.addEventListener('click', function() {
 						   modal.style.display = 'block';
-							modalImage.src =  item.imagePath; // Replace with your image URL
+							modalImage.src =  'https://idealfurniture.runasp.net/uploads/'+item.imagePath; // Replace with your image URL
 							//captionText.innerHTML = 'Sample Image Caption';
 					});
 
@@ -460,7 +485,6 @@ const closeBtn = document.getElementById('closeModalBtn');
                     // Append the image and description to the image item div
                     imageItem.appendChild(img);
                     imageItem.appendChild(desc);
-
                     // Append the image item div to the container
                     container.appendChild(imageItem);
                 });
@@ -475,6 +499,14 @@ const closeBtn = document.getElementById('closeModalBtn');
         });
         }
 
+
+		 function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+		const catId = getUrlParameter('category');
+		fnSelectCategory(catId);
 </script>
 
    <!-- Bootstrap JS -->
